@@ -1,0 +1,51 @@
+﻿@using StudentNoteMvcProject.Models.EntityFramework <!--VERİTABANI modelleme tablo karşılığı olan notes tablosunun NOTES classını getirdim. Yani bu tablo adı değil karşılığı olan class adı.-->
+@model List<NOTES>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!--<h2>Notlar</h2>--><!-- Sınavlar Notlar içerik sayfası-->
+<!--Notlar sayfası için içerik bölümü yani view bölümü. Controller'a eklediğimiz view sayfası'
+-->
+<table class="table table-bordered">
+    <tr>
+        <!--Başlıklar-->
+        <th>SINAV NO</th>
+        <th>ÖĞRENCİ</th>
+        <th>DERS</th>
+        <th>SINAV 1</th>
+        <th>SINAV 2</th>
+        <th>SINAV 3</th>
+        <th>ORTALAMA</th>
+        <th>DURUM</th>
+        <th>GÜNCELLE</th>
+
+
+
+
+    </tr>
+    <tbody>
+        <!--Tablonun içeriği-->
+        @foreach (var note in Model)
+        {
+        <tr>
+            <td>@note.NOTEID</td>
+            <td>@note.STUDENTID</td>
+            <td>@note.LECTUREID</td>
+            <td>@note.FIRSTEXAM</td>
+            <td>@note.SECONDEXAM</td>
+            <td>@note.THIRDEXAM</td>
+            <td>@note.AVERAGE</td>
+            <td>@note.SITUTATION</td>
+            <td><a href="/Exams/examUpdate/@note.NOTEID" class="btn btn-success">Güncelle</a></td>
+
+
+
+        </tr>
+
+        }
+    </tbody>
+
+</table>
+<a href="/Exams/newExam" class="btn btn-primary">Yeni Sınav Girişi</a><!--Buton eklemiş olduk-->

@@ -1,0 +1,40 @@
+﻿@using StudentNoteMvcProject.Models.EntityFramework <!--model alanlarıma ulaşmam için bunu dahil etmeliyim.burada veritabanı tablomun karşılığı olan CLUBS sınıfını çağırıyorum.-->
+@model List<CLUBS>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!--Kulüpler</h2>--><!--Bizim kulüpler için index'imiz'-->
+<!--Buraya kulüpler için içerikler gelecek. Yine kulüpler için tablo oluşturduk.-->
+<table class="table table-bordered">
+    <tr>
+        <!--Başlıklar-->
+        <th>KULÜP NO</th>
+        <th>KULÜP ADI</th>
+        <th>İŞLEMLER</th>
+
+    </tr>
+    <tbody>
+        <!--Tablonun içeriği-->
+        @foreach (var club in Model)//modelin içinden , model'iList<CLUBS> ile belirtmiştim . Veritabanının karşılığı olan LCLUBS sınıfı
+                                   //modelin içinden lesson ile gelen veritabanı verileri üzerinde dolaşıyorum. Ve club.CLUBID ve club.CLUBNAME değerlerini for içinde
+                                   //tablonun sütunlarına yazdırıyorum.
+                                   //Buradaki model yukarıdaki tanımlanan model ile List<CLUBS> ' a bağlı. Bu List CLUBS ,se CLUBS controller'daki Index metoduna bağlı.
+        {
+        <tr>
+            <td>@club.CLUBID</td>
+            <td>@club.CLUBNAME</td>
+            <td>
+                <a href="/Clubs/DeleteClub/@club.CLUBID" class="btn btn-danger">Sil</a><!--Kulüp id'sine göre seçilen kulübü tablodan silmesini sağlarım. Clubs controller'ındaki DeleteClub'ını çağırıyor href'de'-->
+
+                <a href="/Clubs/ListClub/@club.CLUBID" class="btn btn-success">Güncelle</a>
+            </td><!--Kulüp id'sine göre seçilen kulübü tablodan güncellemesini sağlarım.'-->
+            <!--Burada href 'e controller adını Controller'dan önceki kelimeyi vererek ve altında da controller içinde  o işlemi yapan method adını vererek yapıyoruz.-->
+        </tr>
+
+        }
+    </tbody>
+
+</table>
+<a href="\Clubs\NewClub" class="btn btn-primary">Yeni Kulüp Kaydı</a><!--Buton eklemiş olduk-->

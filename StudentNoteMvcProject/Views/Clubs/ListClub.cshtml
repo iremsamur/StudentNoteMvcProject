@@ -1,0 +1,26 @@
+﻿@model StudentNoteMvcProject.Models.EntityFramework.CLUBS
+@{
+    ViewBag.Title = "ListClub";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<!--seçili kulübün bilgilerini getirelim.-->
+@using (Html.BeginForm("UpdateClub", "Clubs", FormMethod.Post))//bunun anlamı Html.BeginForm ile başlangıç formu yüklendiği zaman Clubs Controller içindeki UpdateClub actionresult methodu formmethod.post olduğu zaman çalışsın dedik.
+            {
+<div class="form-group">
+    @Html.LabelFor(m=>m.CLUBNAME)
+    <!--Burada kulübün adı içi bir labelfor kullandık.-->
+    @Html.TextBoxFor(m=>m.CLUBNAME,new { @class="form-control" })
+
+</div>
+@Html.HiddenFor(m=>m.CLUBID)<!--Bu ise ön tarafda gözükmeyecek ama arka tarafta çalışacak olan değeri tutar. Yani club id'sini 
+                                '-->
+<div style="margin-top:15px">
+    <button class="btn btn-info">Güncelle</button>
+
+</div>
+    
+    
+            }

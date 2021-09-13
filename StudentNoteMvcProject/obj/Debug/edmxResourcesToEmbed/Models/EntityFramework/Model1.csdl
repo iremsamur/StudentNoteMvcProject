@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SCHOOLModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="CLUBS">
+    <Key>
+      <PropertyRef Name="CLUBID" />
+    </Key>
+    <Property Name="CLUBID" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CLUBNAME" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="CLUBQUOTA" Type="Int16" />
+    <NavigationProperty Name="STUDENTS" Relationship="Self.FK_STUDENTS_CLUBS" FromRole="CLUBS" ToRole="STUDENTS" />
+  </EntityType>
+  <EntityType Name="LESSONS">
+    <Key>
+      <PropertyRef Name="LESSONID" />
+    </Key>
+    <Property Name="LESSONID" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="LESSONNAME" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="NOTES" Relationship="Self.FK_NOTES_LESSONS" FromRole="LESSONS" ToRole="NOTES" />
+  </EntityType>
+  <EntityType Name="NOTES">
+    <Key>
+      <PropertyRef Name="NOTEID" />
+    </Key>
+    <Property Name="NOTEID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="LECTUREID" Type="Byte" />
+    <Property Name="STUDENTID" Type="Int32" />
+    <Property Name="FIRSTEXAM" Type="Byte" />
+    <Property Name="SECONDEXAM" Type="Byte" />
+    <Property Name="THIRDEXAM" Type="Byte" />
+    <Property Name="PROJECT" Type="Byte" />
+    <Property Name="AVERAGE" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="SITUTATION" Type="Boolean" />
+    <NavigationProperty Name="LESSONS" Relationship="Self.FK_NOTES_LESSONS" FromRole="NOTES" ToRole="LESSONS" />
+    <NavigationProperty Name="STUDENTS" Relationship="Self.FK_NOTES_STUDENTS1" FromRole="NOTES" ToRole="STUDENTS" />
+  </EntityType>
+  <EntityType Name="STUDENTS">
+    <Key>
+      <PropertyRef Name="STUDENTID" />
+    </Key>
+    <Property Name="STUDENTID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="STUDENTNAME" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="STUDENTSURNAME" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="STUDENTIMAGE" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="STUDENTGENDER" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="STUDENTCLUB" Type="Byte" />
+    <NavigationProperty Name="CLUBS" Relationship="Self.FK_STUDENTS_CLUBS" FromRole="STUDENTS" ToRole="CLUBS" />
+    <NavigationProperty Name="NOTES" Relationship="Self.FK_NOTES_STUDENTS1" FromRole="STUDENTS" ToRole="NOTES" />
+  </EntityType>
+  <Association Name="FK_STUDENTS_CLUBS">
+    <End Role="CLUBS" Type="Self.CLUBS" Multiplicity="0..1" />
+    <End Role="STUDENTS" Type="Self.STUDENTS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CLUBS">
+        <PropertyRef Name="CLUBID" />
+      </Principal>
+      <Dependent Role="STUDENTS">
+        <PropertyRef Name="STUDENTCLUB" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_NOTES_LESSONS">
+    <End Role="LESSONS" Type="Self.LESSONS" Multiplicity="0..1" />
+    <End Role="NOTES" Type="Self.NOTES" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LESSONS">
+        <PropertyRef Name="LESSONID" />
+      </Principal>
+      <Dependent Role="NOTES">
+        <PropertyRef Name="LECTUREID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_NOTES_STUDENTS1">
+    <End Role="STUDENTS" Type="Self.STUDENTS" Multiplicity="0..1" />
+    <End Role="NOTES" Type="Self.NOTES" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="STUDENTS">
+        <PropertyRef Name="STUDENTID" />
+      </Principal>
+      <Dependent Role="NOTES">
+        <PropertyRef Name="STUDENTID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="SCHOOLEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="CLUBS" EntityType="Self.CLUBS" />
+    <EntitySet Name="LESSONS" EntityType="Self.LESSONS" />
+    <EntitySet Name="NOTES" EntityType="Self.NOTES" />
+    <EntitySet Name="STUDENTS" EntityType="Self.STUDENTS" />
+    <AssociationSet Name="FK_STUDENTS_CLUBS" Association="Self.FK_STUDENTS_CLUBS">
+      <End Role="CLUBS" EntitySet="CLUBS" />
+      <End Role="STUDENTS" EntitySet="STUDENTS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_NOTES_LESSONS" Association="Self.FK_NOTES_LESSONS">
+      <End Role="LESSONS" EntitySet="LESSONS" />
+      <End Role="NOTES" EntitySet="NOTES" />
+    </AssociationSet>
+    <AssociationSet Name="FK_NOTES_STUDENTS1" Association="Self.FK_NOTES_STUDENTS1">
+      <End Role="STUDENTS" EntitySet="STUDENTS" />
+      <End Role="NOTES" EntitySet="NOTES" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

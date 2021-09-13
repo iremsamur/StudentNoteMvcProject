@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SCHOOLModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="CLUBS">
+    <Key>
+      <PropertyRef Name="CLUBID" />
+    </Key>
+    <Property Name="CLUBID" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CLUBNAME" Type="varchar" MaxLength="30" />
+    <Property Name="CLUBQUOTA" Type="smallint" />
+  </EntityType>
+  <EntityType Name="LESSONS">
+    <Key>
+      <PropertyRef Name="LESSONID" />
+    </Key>
+    <Property Name="LESSONID" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="LESSONNAME" Type="varchar" MaxLength="30" />
+  </EntityType>
+  <EntityType Name="NOTES">
+    <Key>
+      <PropertyRef Name="NOTEID" />
+    </Key>
+    <Property Name="NOTEID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="LECTUREID" Type="tinyint" />
+    <Property Name="STUDENTID" Type="int" />
+    <Property Name="FIRSTEXAM" Type="tinyint" />
+    <Property Name="SECONDEXAM" Type="tinyint" />
+    <Property Name="THIRDEXAM" Type="tinyint" />
+    <Property Name="PROJECT" Type="tinyint" />
+    <Property Name="AVERAGE" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="SITUTATION" Type="bit" />
+  </EntityType>
+  <EntityType Name="STUDENTS">
+    <Key>
+      <PropertyRef Name="STUDENTID" />
+    </Key>
+    <Property Name="STUDENTID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="STUDENTNAME" Type="varchar" MaxLength="20" />
+    <Property Name="STUDENTSURNAME" Type="varchar" MaxLength="20" />
+    <Property Name="STUDENTIMAGE" Type="varchar" MaxLength="200" />
+    <Property Name="STUDENTGENDER" Type="varchar" MaxLength="5" />
+    <Property Name="STUDENTCLUB" Type="tinyint" />
+  </EntityType>
+  <Association Name="FK_NOTES_LESSONS">
+    <End Role="LESSONS" Type="Self.LESSONS" Multiplicity="0..1" />
+    <End Role="NOTES" Type="Self.NOTES" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LESSONS">
+        <PropertyRef Name="LESSONID" />
+      </Principal>
+      <Dependent Role="NOTES">
+        <PropertyRef Name="LECTUREID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_NOTES_STUDENTS1">
+    <End Role="STUDENTS" Type="Self.STUDENTS" Multiplicity="0..1" />
+    <End Role="NOTES" Type="Self.NOTES" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="STUDENTS">
+        <PropertyRef Name="STUDENTID" />
+      </Principal>
+      <Dependent Role="NOTES">
+        <PropertyRef Name="STUDENTID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_STUDENTS_CLUBS">
+    <End Role="CLUBS" Type="Self.CLUBS" Multiplicity="0..1" />
+    <End Role="STUDENTS" Type="Self.STUDENTS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CLUBS">
+        <PropertyRef Name="CLUBID" />
+      </Principal>
+      <Dependent Role="STUDENTS">
+        <PropertyRef Name="STUDENTCLUB" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="SCHOOLModelStoreContainer">
+    <EntitySet Name="CLUBS" EntityType="Self.CLUBS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LESSONS" EntityType="Self.LESSONS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NOTES" EntityType="Self.NOTES" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="STUDENTS" EntityType="Self.STUDENTS" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_NOTES_LESSONS" Association="Self.FK_NOTES_LESSONS">
+      <End Role="LESSONS" EntitySet="LESSONS" />
+      <End Role="NOTES" EntitySet="NOTES" />
+    </AssociationSet>
+    <AssociationSet Name="FK_NOTES_STUDENTS1" Association="Self.FK_NOTES_STUDENTS1">
+      <End Role="STUDENTS" EntitySet="STUDENTS" />
+      <End Role="NOTES" EntitySet="NOTES" />
+    </AssociationSet>
+    <AssociationSet Name="FK_STUDENTS_CLUBS" Association="Self.FK_STUDENTS_CLUBS">
+      <End Role="CLUBS" EntitySet="CLUBS" />
+      <End Role="STUDENTS" EntitySet="STUDENTS" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

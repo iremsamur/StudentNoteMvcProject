@@ -1,0 +1,44 @@
+﻿@using StudentNoteMvcProject.Models.EntityFramework <!--model alanlarıma ulaşmam için bunu dahil etmeliyim.burada veritabanı tablomun karşılığı olan STUDENTS sınıfını çağırıyorum.-->
+@model List<STUDENTS>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!--<h2>Öğrenci</h2>-->
+<!--Öğrenciler sayfası için içerik bölümü
+-->
+<table class="table table-bordered">
+    <tr>
+        <!--Başlıklar-->
+        <th>ÖĞRENCİ NO</th>
+        <th>ÖĞRENCİ ADI</th>
+        <th>ÖĞRENCİ SOYADI</th>
+        <th>CİNSİYET</th>
+        <th>KULÜBÜ</th>
+        <th>İŞLEMLER</th>
+
+    </tr>
+    <tbody>
+        <!--Tablonun içeriği-->
+        @foreach (var student in Model)
+        {
+        <tr>
+            <td>@student.STUDENTID</td>
+            <td>@student.STUDENTNAME</td>
+            <td>@student.STUDENTSURNAME</td>
+            <td>@student.STUDENTGENDER</td>
+            <td>@student.STUDENTCLUB</td>
+            <td>
+                <a href="/Students/StudentDelete/@student.STUDENTID" class="btn btn-danger">Sil</a><!--student id'sine göre seçilen öğrenciyi tablodan silmesini sağlarım.'-->
+
+                <a href="/Students/studentUpdate/@student.STUDENTID" class="btn btn-success">Güncelle</a>
+            </td><!--student id'sine göre seçilen öğrenciyi tablodan güncellemesini sağlarım.'-->
+
+        </tr>
+
+        }
+    </tbody>
+
+</table>
+<a href="\Students\newStudent" class="btn btn-primary">Yeni Öğrenci Kaydı</a><!--Buton eklemiş olduk-->

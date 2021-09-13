@@ -1,0 +1,125 @@
+﻿@model StudentNoteMvcProject.Models.EntityFramework.STUDENTS
+<!--Öğrenciler tablosunu veritabanını burada kullanmak için tanımlarım.Buradaki sınıf karşılığı-->
+@{
+    ViewBag.Title = "newStudent";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!--<h2>newStudent</h2>-->
+<form method="post" class="form-group">
+    <div>
+        <label>
+            Öğrenci Adı
+        </label>
+        <input type="text" class="form-control" name="STUDENTNAME" />
+    </div>
+    <div style="margin-top:10px">
+        <label>
+            Öğrenci Soyadı
+        </label>
+        <input type="text" class="form-control" name="STUDENTSURNAME" />
+    </div>
+    <div style="margin-top:10px">
+        <label>
+            Öğrenci Fotoğraf
+        </label>
+        <input type="text" class="form-control" name="STUDENTIMAGE" />
+    </div>
+    <div style="margin-top:10px">
+        <label>
+            Öğrenci Cinsiyet
+        </label>
+        <input type="text" class="form-control" name="STUDENTGENDER" />
+    </div>
+    <div style="margin-top:10px">
+        <label>
+            Öğrenci Kulüp
+        </label>
+        <!--Veritabanından çektiğim öğrencilerin kulüplerini  burada dropdownlist kullanarak getiririm.-->
+        @Html.DropDownListFor(m => m.CLUBS.CLUBID, (List<SelectListItem>)ViewBag.value, new
+   {
+       @class="form-control"//dropwdownlist içinde linq ile veritabanından getirdiğim verilerimi burada tablonun class karşılığından çektim.Ve çekilen öğenci kulüplerini bu dropdownlist içinde listeler
+   })
+
+
+    </div>
+
+
+    @*<div style="margin-top:10px">
+        Dropdownlist kullanımı
+        Dropdownlist gibi elementler direk html komutu ile yazılmaz. Ç
+            ünkü bulunmaz. Bu yüzden bunları kullanabilmek için html helper aşağıdaki gibi kullanılarak kullanabiliriz.
+        <label>Şehir Seçimi </label>
+
+            @Html.DropDownList("Cities",//Bu cities dropdown list adı
+           new[]
+           {
+               new SelectListItem()
+               {
+                   Value="1",Text="Ankara"//Dropdownlist içinde bulunacak ögeleri bu şekilde veririm.Value arka planda çalışacak olan kısımdır.
+                   //text ise kullanıcıya listede görünecek olan kısımı ifade eder.
+               },
+               new SelectListItem()
+               {
+                   Value="2",Text="Bursa"
+               },
+               new SelectListItem()
+               {
+                   Value="3",Text="İstanbul"
+               },
+               new SelectListItem()
+               {
+                   Value="4",Text="İzmir"
+               }
+           }, "Şehir Seçiniz...", new//Burada şehir seçiniz değeri ile dropdownlistte en başta görünecek içerik
+           {
+               @class = "form-control"//dropdownlisti özelleştirmek için css için kullanılacak class
+           }
+           )
+
+
+        </div>*@
+    <!--Dropdownlist'i bu şekilde de kullanabilirim.'-->
+    <!--
+    <div style="margin-top:10px">
+        <fieldset>
+            Movie Type <select id="MovieType" name="MovieType">
+
+                <option value=""></option>
+
+                <option value="0">Action</option>
+
+                <option value="1">Drama</option>
+
+                <option selected="selected" value="2">Comedy</option>
+
+                <option value="3">Science Fiction</option>
+
+            </select>
+
+            <p><input type="submit" value="Submit" /> </p>
+
+        </fieldset>
+    </div>
+        -->
+    @*<div>
+
+                Drowpdownlist kullanımı action result'lu'
+                @Html.DropDownList("DersAd", null, "Ders Seçimi", new
+        {
+          @class = "Form-control"
+        })
+
+
+            </div>*@
+
+
+
+    <div style="margin-top:10px">
+
+        <button class="btn btn-primary">
+            Öğrenci Ekle
+
+        </button>
+    </div>
+</form>

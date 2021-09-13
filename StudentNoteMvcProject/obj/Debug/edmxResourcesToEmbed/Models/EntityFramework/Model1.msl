@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="SCHOOLModelStoreContainer" CdmEntityContainer="SCHOOLEntities1">
+    <EntitySetMapping Name="CLUBS">
+      <EntityTypeMapping TypeName="SCHOOLModel.CLUBS">
+        <MappingFragment StoreEntitySet="CLUBS">
+          <ScalarProperty Name="CLUBID" ColumnName="CLUBID" />
+          <ScalarProperty Name="CLUBNAME" ColumnName="CLUBNAME" />
+          <ScalarProperty Name="CLUBQUOTA" ColumnName="CLUBQUOTA" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LESSONS">
+      <EntityTypeMapping TypeName="SCHOOLModel.LESSONS">
+        <MappingFragment StoreEntitySet="LESSONS">
+          <ScalarProperty Name="LESSONID" ColumnName="LESSONID" />
+          <ScalarProperty Name="LESSONNAME" ColumnName="LESSONNAME" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NOTES">
+      <EntityTypeMapping TypeName="SCHOOLModel.NOTES">
+        <MappingFragment StoreEntitySet="NOTES">
+          <ScalarProperty Name="NOTEID" ColumnName="NOTEID" />
+          <ScalarProperty Name="LECTUREID" ColumnName="LECTUREID" />
+          <ScalarProperty Name="STUDENTID" ColumnName="STUDENTID" />
+          <ScalarProperty Name="FIRSTEXAM" ColumnName="FIRSTEXAM" />
+          <ScalarProperty Name="SECONDEXAM" ColumnName="SECONDEXAM" />
+          <ScalarProperty Name="THIRDEXAM" ColumnName="THIRDEXAM" />
+          <ScalarProperty Name="PROJECT" ColumnName="PROJECT" />
+          <ScalarProperty Name="AVERAGE" ColumnName="AVERAGE" />
+          <ScalarProperty Name="SITUTATION" ColumnName="SITUTATION" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="STUDENTS">
+      <EntityTypeMapping TypeName="SCHOOLModel.STUDENTS">
+        <MappingFragment StoreEntitySet="STUDENTS">
+          <ScalarProperty Name="STUDENTID" ColumnName="STUDENTID" />
+          <ScalarProperty Name="STUDENTNAME" ColumnName="STUDENTNAME" />
+          <ScalarProperty Name="STUDENTSURNAME" ColumnName="STUDENTSURNAME" />
+          <ScalarProperty Name="STUDENTIMAGE" ColumnName="STUDENTIMAGE" />
+          <ScalarProperty Name="STUDENTGENDER" ColumnName="STUDENTGENDER" />
+          <ScalarProperty Name="STUDENTCLUB" ColumnName="STUDENTCLUB" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

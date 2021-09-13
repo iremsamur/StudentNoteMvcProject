@@ -1,0 +1,25 @@
+﻿
+@{
+    ViewBag.Title = "NewLesson";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!--<h2>NewLesson</h2>-->
+<!--<h2>Yeni ders ekleme sayfası view'i 'burası . DEfault 'un Index.cshtml'inden Butona basıldığında buraya gelecek</h2>-->
+<!--Bu sayfanın tasarımını yazalım.-->
+<form  class="form-group">
+    <!--ekleme işleminde HTTPGET VE HTTPPOST kullandığım için form methoduna post verdim.-->
+    <div>
+        <label>Ders Adı</label>
+        <input type="text" class="form-control" name="LESSONNAME" />
+        <!--Burada input'un name adı entityFramework'ün oluşturduğu veritabanının karşılığı olan
+            LESSONS sınıfındaki LESSONNAME KOLONU İLE AYNI İSİMDE OLMALI . o YÜZDEN LESSONNAME VERDİM.-->
+    </div>
+    <div style="margin-top:10px;">
+        <button class="btn btn-info">
+            Ders Ekle
+        </button>
+    </div>
+
+</form>
+

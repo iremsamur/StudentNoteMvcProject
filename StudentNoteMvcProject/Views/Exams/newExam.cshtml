@@ -1,0 +1,71 @@
+﻿@model StudentNoteMvcProject.Models.EntityFramework.NOTES
+@{
+    ViewBag.Title = "newExam";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!--<h2>newExam</h2>-->
+<form method="post" class="form-group">
+    <div>
+        <label>
+            Öğrenci No
+        </label>
+        <input type="text" class="form-control" name="STUDENTID" />
+    </div>
+    <div style="margin-top:10px">
+        <label>
+            Ders Adı
+        </label>
+        <input type="text" class="form-control" name="LECTUREID" />
+    </div>
+    <div style="margin-top:10px">
+        <label>
+            Sınav 1
+        </label>
+        <input type="text" class="form-control" name="FIRSTEXAM" />
+    </div>
+    <div style="margin-top:10px">
+        <label>
+            Sınav 2
+        </label>
+        <input type="text" class="form-control" name="SECONDEXAM" />
+    </div>
+    <div style="margin-top:10px">
+        <label>
+            Sınav 3
+        </label>
+        <input type="text" class="form-control" name="THIRDEXAM" />
+    </div>
+    <div style="margin-top:10px">
+        <label>
+            Proje
+        </label>
+        <input type="text" class="form-control" name="PROJECT" />
+    </div>
+    <div style="margin-top:10px">
+        <label>
+            Ortalama
+        </label>
+        <input type="text" class="form-control" name="AVERAGE" />
+    </div>
+    <div style="margin-top:10px">
+        <label>
+            Durum
+        </label>
+        <input type="text" class="form-control" name="SITUTATION" />
+    </div>
+    <div style="margin-top:10px">
+
+        <button class="btn btn-primary">
+            Sınav Ekle
+
+        </button>
+    </div>
+
+
+
+
+
+
+</form>
+

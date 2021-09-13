@@ -1,0 +1,42 @@
+﻿@using StudentNoteMvcProject.Models.EntityFramework <!--model alanlarıma ulaşmam için bunu dahil etmeliyim.burada veritabanı tablomun karşılığı olan LESSONS sınıfını çağırıyorum.-->
+@model List<LESSONS>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!--<h2>Burası Projenin Content Alanıdır.</h2>--><!--Uygulama buradan çalıştırılır.-->
+<!--İçerik alanında dersleri listelemek için buraya tablo oluşturuyorum.-->
+<!--CSS içinde yazacağım backend kodları c# kodları foreach gibi başında ed  işareti ile yazılır.-->
+<table class="table table-bordered">
+    <tr>
+        <!--Başlıklar-->
+        <th>DERS NO</th>
+        <th>DERS ADI</th>
+        <th>İŞLEMLER</th>
+
+    </tr>
+    <tbody>
+        <!--Tablonun içeriği-->
+        @foreach(var lesson in Model)//modelin içinden , model'iList<LESSONS> ile belirtmiştim . Veritabanının karşılığı olan LESSONS sınıfı
+            //modelin içinden lesson ile gelen veritabanı verileri üzerinde dolaşıyorum. Ve lesson.LESSONID ve lesson.LESSONNAME değerlerini for içinde
+            //tablonun sütunlarına yazdırıyorum.
+            //Buradaki model yukarıdaki tanımlanan model ile List<LESSONS> ' a bağlı. Bu List lesson ,se default controller'daki Index metoduna bağlı.
+            {
+        <tr>
+            <td>@lesson.LESSONID</td>
+            <td>@lesson.LESSONNAME</td>
+            <td>
+                <a href="/Default/DeleteLesson/@lesson.LESSONID" class="btn btn-danger">Sil</a><!--lesson id'sine göre seçilen dersi tablodan silmesini sağlarım.'-->
+
+                <a href="/Default/lessonUpdate/@lesson.LESSONID" class="btn btn-success">Güncelle</a>
+            </td><!--lesson id'sine göre seçilen dersi tablodan güncellemesini sağlarım.'-->
+            <!--Burada href 'e controller adını Controller'dan önceki kelimeyi vererek ve altında da controller içinde  o işlemi yapan method adını vererek yapıyoruz.-->
+        </tr>
+
+            }
+    </tbody>
+
+</table>
+<!--Ders Ekleme butonu ekleyelim-->
+<a href="/Default/NewLesson" class="btn btn-primary">Yeni Ders Kaydı</a><!--Buton eklemiş olduk-->

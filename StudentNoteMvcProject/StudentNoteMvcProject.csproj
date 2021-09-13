@@ -1,0 +1,647 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{8E26B0A4-5C92-4AE1-8449-38742AD67C11}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>StudentNoteMvcProject</RootNamespace>
+    <AssemblyName>StudentNoteMvcProject</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort>44330</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.7\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.7\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\ClubsController.cs" />
+    <Compile Include="Controllers\DefaultController.cs" />
+    <Compile Include="Controllers\ExamsController.cs" />
+    <Compile Include="Controllers\StudentsController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EntityFramework\CLUBS.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EntityFramework\LESSONS.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EntityFramework\Model1.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EntityFramework\Model1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EntityFramework\Model1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EntityFramework\NOTES.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EntityFramework\STUDENTS.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\.gitattributes" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\.gitignore" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\dist\css\bootstrap-theme.css" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\dist\css\bootstrap-theme.min.css" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\dist\css\bootstrap.css" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\dist\css\bootstrap.min.css" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\dist\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\dist\js\bootstrap.js" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\dist\js\bootstrap.min.js" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\dist\js\npm.js" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\about.html" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\apple-touch-icon.png" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\assets\brand\bootstrap-outline.svg" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\assets\brand\bootstrap-punchout.svg" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\assets\brand\bootstrap-solid.svg" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\assets\css\docs.min.css" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\assets\css\ie10-viewport-bug-workaround.css" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\assets\css\src\docs.css" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\assets\css\src\pygments-manni.css" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\assets\flash\ZeroClipboard.swf" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\assets\img\components.png" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\assets\img\devices.png" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\assets\img\expo-lyft.jpg" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\assets\img\expo-newsweek.jpg" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\assets\img\expo-riot.jpg" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\assets\img\expo-vogue.jpg" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\assets\img\sass-less.png" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\assets\js\customize.min.js" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\assets\js\docs.min.js" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\assets\js\ie-emulation-modes-warning.js" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\assets\js\ie10-viewport-bug-workaround.js" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\assets\js\ie8-responsive-file-warning.js" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\assets\js\raw-files.min.js" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\assets\js\src\application.js" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\assets\js\src\customizer.js" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\assets\js\vendor\anchor.min.js" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\assets\js\vendor\autoprefixer.js" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\assets\js\vendor\Blob.js" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\assets\js\vendor\FileSaver.js" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\assets\js\vendor\holder.min.js" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\assets\js\vendor\jquery.min.js" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\assets\js\vendor\jszip.min.js" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\assets\js\vendor\less.min.js" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\assets\js\vendor\uglify.min.js" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\assets\js\vendor\ZeroClipboard.min.js" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\browser-bugs.html" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\components.html" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\css.html" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\customize.html" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\dist\css\bootstrap-theme.css" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\dist\css\bootstrap-theme.min.css" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\dist\css\bootstrap.css" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\dist\css\bootstrap.min.css" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\dist\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\dist\js\bootstrap.js" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\dist\js\bootstrap.min.js" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\dist\js\npm.js" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\examples\blog\blog.css" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\examples\blog\index.html" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\examples\carousel\carousel.css" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\examples\carousel\index.html" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\examples\cover\cover.css" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\examples\cover\index.html" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\examples\dashboard\dashboard.css" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\examples\dashboard\index.html" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\examples\grid\grid.css" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\examples\grid\index.html" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\examples\jumbotron-narrow\index.html" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\examples\jumbotron-narrow\jumbotron-narrow.css" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\examples\jumbotron\index.html" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\examples\jumbotron\jumbotron.css" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\examples\justified-nav\index.html" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\examples\justified-nav\justified-nav.css" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\examples\navbar-fixed-top\index.html" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\examples\navbar-fixed-top\navbar-fixed-top.css" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\examples\navbar-static-top\index.html" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\examples\navbar-static-top\navbar-static-top.css" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\examples\navbar\index.html" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\examples\navbar\navbar.css" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\examples\non-responsive\index.html" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\examples\non-responsive\non-responsive.css" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\examples\offcanvas\index.html" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\examples\offcanvas\offcanvas.css" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\examples\offcanvas\offcanvas.js" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\examples\screenshots\blog.jpg" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\examples\screenshots\carousel.jpg" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\examples\screenshots\cover.jpg" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\examples\screenshots\dashboard.jpg" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\examples\screenshots\equal-height-columns.jpg" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\examples\screenshots\grid.jpg" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\examples\screenshots\jumbotron-narrow.jpg" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\examples\screenshots\jumbotron.jpg" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\examples\screenshots\justified-nav.jpg" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\examples\screenshots\navbar-fixed.jpg" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\examples\screenshots\navbar-static.jpg" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\examples\screenshots\navbar.jpg" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\examples\screenshots\non-responsive.jpg" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\examples\screenshots\offcanvas.jpg" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\examples\screenshots\sign-in.jpg" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\examples\screenshots\starter-template.jpg" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\examples\screenshots\sticky-footer-navbar.jpg" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\examples\screenshots\sticky-footer.jpg" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\examples\screenshots\theme.jpg" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\examples\signin\index.html" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\examples\signin\signin.css" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\examples\starter-template\index.html" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\examples\starter-template\starter-template.css" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\examples\sticky-footer-navbar\index.html" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\examples\sticky-footer-navbar\sticky-footer-navbar.css" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\examples\sticky-footer\index.html" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\examples\sticky-footer\sticky-footer.css" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\examples\theme\index.html" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\examples\theme\theme.css" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\examples\tooltip-viewport\index.html" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\examples\tooltip-viewport\tooltip-viewport.css" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\examples\tooltip-viewport\tooltip-viewport.js" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\favicon.ico" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\getting-started.html" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\index.html" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\javascript.html" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\migration.html" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\robots.txt" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\_includes\ads.html" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\_includes\components\alerts.html" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\_includes\components\badges.html" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\_includes\components\breadcrumbs.html" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\_includes\components\button-dropdowns.html" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\_includes\components\button-groups.html" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\_includes\components\dropdowns.html" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\_includes\components\glyphicons.html" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\_includes\components\input-groups.html" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\_includes\components\jumbotron.html" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\_includes\components\labels.html" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\_includes\components\list-group.html" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\_includes\components\media.html" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\_includes\components\navbar.html" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\_includes\components\navs.html" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\_includes\components\page-header.html" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\_includes\components\pagination.html" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\_includes\components\panels.html" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\_includes\components\progress-bars.html" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\_includes\components\responsive-embed.html" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\_includes\components\thumbnails.html" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\_includes\components\wells.html" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\_includes\css\buttons.html" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\_includes\css\code.html" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\_includes\css\forms.html" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\_includes\css\grid.html" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\_includes\css\helpers.html" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\_includes\css\images.html" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\_includes\css\less.html" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\_includes\css\overview.html" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\_includes\css\responsive-utilities.html" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\_includes\css\sass.html" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\_includes\css\tables.html" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\_includes\css\type.html" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\_includes\customizer-variables.html" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\_includes\footer.html" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\_includes\getting-started\accessibility.html" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\_includes\getting-started\browser-device-support.html" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\_includes\getting-started\community.html" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\_includes\getting-started\disabling-responsiveness.html" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\_includes\getting-started\download.html" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\_includes\getting-started\examples.html" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\_includes\getting-started\grunt.html" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\_includes\getting-started\license.html" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\_includes\getting-started\template.html" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\_includes\getting-started\third-party-support.html" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\_includes\getting-started\tools.html" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\_includes\getting-started\translations.html" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\_includes\getting-started\whats-included.html" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\_includes\header.html" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\_includes\js\affix.html" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\_includes\js\alerts.html" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\_includes\js\buttons.html" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\_includes\js\carousel.html" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\_includes\js\collapse.html" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\_includes\js\dropdowns.html" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\_includes\js\modal.html" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\_includes\js\overview.html" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\_includes\js\popovers.html" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\_includes\js\scrollspy.html" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\_includes\js\tabs.html" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\_includes\js\tooltips.html" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\_includes\js\transitions.html" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\_includes\nav\about.html" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\_includes\nav\components.html" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\_includes\nav\css.html" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\_includes\nav\customize.html" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\_includes\nav\getting-started.html" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\_includes\nav\javascript.html" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\_includes\nav\main.html" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\_includes\nav\migration.html" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\_layouts\default.html" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\_layouts\home.html" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\Gruntfile.js" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\grunt\bs-commonjs-generator.js" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\grunt\bs-glyphicons-data-generator.js" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\grunt\bs-lessdoc-parser.js" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\grunt\bs-raw-files-generator.js" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\grunt\change-version.js" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\js\affix.js" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\js\alert.js" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\js\button.js" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\js\carousel.js" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\js\collapse.js" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\js\dropdown.js" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\js\modal.js" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\js\popover.js" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\js\scrollspy.js" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\js\tab.js" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\js\tests\index.html" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\js\tests\unit\affix.js" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\js\tests\unit\alert.js" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\js\tests\unit\button.js" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\js\tests\unit\carousel.js" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\js\tests\unit\collapse.js" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\js\tests\unit\dropdown.js" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\js\tests\unit\modal.js" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\js\tests\unit\phantom.js" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\js\tests\unit\popover.js" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\js\tests\unit\scrollspy.js" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\js\tests\unit\tab.js" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\js\tests\unit\tooltip.js" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\js\tests\vendor\jquery.min.js" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\js\tests\vendor\qunit.css" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\js\tests\vendor\qunit.js" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\js\tests\visual\affix-with-sticky-footer.html" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\js\tests\visual\affix.html" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\js\tests\visual\alert.html" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\js\tests\visual\button.html" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\js\tests\visual\carousel.html" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\js\tests\visual\collapse.html" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\js\tests\visual\dropdown.html" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\js\tests\visual\modal.html" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\js\tests\visual\popover.html" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\js\tests\visual\scrollspy.html" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\js\tests\visual\tab.html" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\js\tests\visual\tooltip.html" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\js\tooltip.js" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\js\transition.js" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\package.js" />
+    <Content Include="Dosyalar1\bootstrap.min.css" />
+    <Content Include="Dosyalar1\jquery-1.12.0.min.js" />
+    <Content Include="Dosyalar1\js-bootstrap.min.js" />
+    <Content Include="Dosyalar1\sidebar\bootstrap-3\index.html" />
+    <Content Include="Dosyalar1\sidebar\bootstrap-3\index2.html" />
+    <Content Include="Dosyalar1\sidebar\bootstrap-3\index3.html" />
+    <Content Include="Dosyalar1\sidebar\bootstrap-3\index4.html" />
+    <Content Include="Dosyalar1\sidebar\bootstrap-3\index5.html" />
+    <Content Include="Dosyalar1\sidebar\bootstrap-3\style.css" />
+    <Content Include="Dosyalar1\sidebar\bootstrap-3\style2.css" />
+    <Content Include="Dosyalar1\sidebar\bootstrap-3\style3.css" />
+    <Content Include="Dosyalar1\sidebar\bootstrap-3\style4.css" />
+    <Content Include="Dosyalar1\sidebar\bootstrap-3\style5.css" />
+    <Content Include="Dosyalar1\sidebar\index.html" />
+    <Content Include="Dosyalar1\sidebar\index2.html" />
+    <Content Include="Dosyalar1\sidebar\index3.html" />
+    <Content Include="Dosyalar1\sidebar\index4.html" />
+    <Content Include="Dosyalar1\sidebar\index5.html" />
+    <Content Include="Dosyalar1\sidebar\style.css" />
+    <Content Include="Dosyalar1\sidebar\style2.css" />
+    <Content Include="Dosyalar1\sidebar\style3.css" />
+    <Content Include="Dosyalar1\sidebar\style4.css" />
+    <Content Include="Dosyalar1\sidebar\style5.css" />
+    <Content Include="Dosyalar1\StyleSheet2.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Models\EntityFramework\Model1.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\EntityFramework\Model1.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.cs</LastGenOutput>
+    </Content>
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\.editorconfig" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\.hound.yml" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\.travis.yml" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\bower.json" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\CHANGELOG.md" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\CNAME" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\composer.json" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\CONTRIBUTING.md" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\dist\css\bootstrap-theme.css.map" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\dist\css\bootstrap-theme.min.css.map" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\dist\css\bootstrap.css.map" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\dist\css\bootstrap.min.css.map" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\dist\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\dist\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\dist\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\dist\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\assets\css\docs.min.css.map" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\dist\css\bootstrap-theme.css.map" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\dist\css\bootstrap-theme.min.css.map" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\dist\css\bootstrap.css.map" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\dist\css\bootstrap.min.css.map" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\dist\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\dist\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\dist\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\dist\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\LICENSE" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\_data\browser-bugs.yml" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\_data\browser-features.yml" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\_data\core-team.yml" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\_data\glyphicons.yml" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\_data\sass-team.yml" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\_data\showcase.yml" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\_data\translations.yml" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\_plugins\bridge.rb" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\_plugins\bugify.rb" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\_pug\customizer-nav.pug" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\docs\_pug\customizer-variables.pug" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\Gemfile" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\Gemfile.lock" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\grunt\.jshintrc" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\grunt\configBridge.json" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\grunt\npm-shrinkwrap.json" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\grunt\sauce_browsers.yml" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\ISSUE_TEMPLATE.md" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\js\.jscsrc" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\js\.jshintrc" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\js\tests\README.md" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\js\tests\unit\.jshintrc" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\less\.csscomb.json" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\less\.csslintrc" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\less\alerts.less" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\less\badges.less" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\less\bootstrap.less" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\less\breadcrumbs.less" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\less\button-groups.less" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\less\buttons.less" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\less\carousel.less" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\less\close.less" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\less\code.less" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\less\component-animations.less" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\less\dropdowns.less" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\less\forms.less" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\less\glyphicons.less" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\less\grid.less" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\less\input-groups.less" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\less\jumbotron.less" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\less\labels.less" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\less\list-group.less" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\less\media.less" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\less\mixins.less" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\less\modals.less" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\less\navbar.less" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\less\navs.less" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\less\normalize.less" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\less\pager.less" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\less\pagination.less" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\less\panels.less" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\less\popovers.less" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\less\print.less" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\less\progress-bars.less" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\less\responsive-embed.less" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\less\responsive-utilities.less" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\less\scaffolding.less" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\less\tables.less" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\less\theme.less" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\less\thumbnails.less" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\less\tooltip.less" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\LICENSE" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\package.json" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\README.md" />
+    <Content Include="Dosyalar1\bootstrap-3.3.7\_config.yml" />
+    <EntityDeploy Include="Models\EntityFramework\Model1.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\EntityFramework\Model1.edmx.diagram">
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Content>
+    <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="Scripts\jquery-3.4.1.js" />
+    <Content Include="Scripts\jquery-3.4.1.min.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Default\Index.cshtml" />
+    <Content Include="Views\Clubs\Index.cshtml" />
+    <Content Include="Views\Students\Index.cshtml" />
+    <Content Include="Views\Exams\Index.cshtml" />
+    <Content Include="Views\Default\NewLesson.cshtml" />
+    <Content Include="Views\Clubs\NewClub.cshtml" />
+    <Content Include="Views\Students\newStudent.cshtml" />
+    <Content Include="Views\Exams\newExam.cshtml" />
+    <Content Include="Views\Clubs\ListClub.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-theme.min.css.map" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <None Include="packages.config" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.4.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>62670</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44330/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>
